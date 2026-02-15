@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Do You Dare?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    color: #00ffcc;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    transition: 1.5s;
+}
+
+#box {
+    max-width: 700px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.glitch {
+    animation: glitch 0.2s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(1px, -1px); }
+    25% { transform: translate(-1px, 1px); }
+    50% { transform: translate(1px, 1px); }
+    75% { transform: translate(-1px, -1px); }
+    100% { transform: translate(0,0); }
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: 1px solid #00ffcc;
+    background: transparent;
+    color: #00ffcc;
+    cursor: pointer;
+    display: none;
+}
+
+.btn:hover {
+    background: #00ffcc;
+    color: black;
+}
+</style>
+</head>
+
+<body>
+
+<div id="box">
+    <h1 id="title">Initializing...</h1>
+    <p id="text">Please wait.</p>
+    <button id="btn" class="btn" onclick="reveal()">FINAL STEP</button>
+</div>
+
+<script>
+let title = document.getElementById("title");
+let text = document.getElementById("text");
+let btn = document.getElementById("btn");
+
+setTimeout(() => {
+    title.innerText = "Connection established.";
+    text.innerText = "Scanning device...";
+}, 2000);
+
+setTimeout(() => {
+    title.classList.add("glitch");
+    title.innerText = "UNKNOWN PRESENCE DETECTED";
+    text.innerText = "Do not leave the page.";
+    document.body.style.color = "#ff0033";
+}, 5000);
+
+setTimeout(() => {
+    text.innerText = "Tracking... 3";
+}, 7000);
+
+setTimeout(() => {
+    text.innerText = "Tracking... 2";
+}, 8000);
+
+setTimeout(() => {
+    text.innerText = "Tracking... 1";
+}, 9000);
+
+setTimeout(() => {
+    document.body.style.background = "white";
+    document.body.style.color = "black";
+    title.innerText = "⚠ SIGNAL LOST ⚠";
+    text.innerText = "Recovering message...";
+}, 10500);
+
+setTimeout(() => {
+    document.body.style.background = "#050010";
+    document.body.style.color = "#00ffff";
+    title.classList.remove("glitch");
+    title.innerText = "You stayed till the end...";
+    text.innerText = "Press the button to reveal the truth.";
+    btn.style.display = "inline-block";
+}, 12500);
+
+function reveal() {
+    document.body.style.background = "#1a0033";
+    title.innerText = "Happy Maha Shivaratri 🔱";
+    text.innerText =
+    "From darkness to light.\nFrom fear to strength.\n\nHar Har Mahadev!";
+    btn.style.display = "none";
+}
+</script>
+
+</body>
+</html>
